@@ -1,0 +1,31 @@
+﻿@page
+@model Recipe.Pages.LoginModel
+@{
+    Layout = "Shared/_Layout.cshtml";
+    ViewData["Title"] = "Login";
+}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card border-success mb-3">
+                <div class="card-header bg-success text-white">Create a new account</div>
+                <div class="card-body">
+                    <form id="registerForm" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                        <div class="form-floating mb-3">
+                            <label asp-for="user.Username">Username</label>
+                            <input asp-for="user.Username" class="form-control" aria-required="true" placeholder="username" />
+                            <span asp-validation-for="user.Username" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <label asp-for="user.Password">Password</label>
+                            <input type="password" asp-for="user.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                            <span asp-validation-for="user.Password" class="text-danger"></span>
+                        </div>
+                        <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-success">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

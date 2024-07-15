@@ -1,0 +1,31 @@
+﻿@page
+@model Recipe.Pages.UserRecipesModel
+@{
+    ViewData["Title"] = "Home page";
+    Layout = "Shared/_Layout.cshtml";
+}
+@if (Model.recipes != null)
+{
+    foreach (var recipe in Model.recipes)
+    {
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="single-best-receipe-area mb-30">
+                <img "~/@recipe.Image" alt="@recipe.Title">
+                <div class="receipe-content">
+                    <a asp-page="RecipeDetail" asp-route-recipeId="@recipe.Id">
+                        <h5>@recipe.Title</h5>
+                    </a>
+                    <div class="ratings">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}else{
+    <h2>Nothing to demonstrate :)</h2>
+}

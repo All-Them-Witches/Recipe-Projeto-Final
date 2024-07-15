@@ -1,0 +1,45 @@
+﻿@page
+@model Recipe.Pages.SignUpModel
+@{
+    Layout = "Shared/_Layout.cshtml";
+    ViewData["Title"] = "Create recipe";
+}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card border-success mb-3">
+                <div class="card-header bg-success text-white">Create a new account</div>
+                <div class="card-body">
+                    <form id="registerForm" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                        <div class="form-floating mb-3">
+                            <label asp-for="@Model.user.Email">Email</label>
+                            <input type="email" asp-for="@Model.user.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                            <span asp-validation-for="@Model.user.Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <label asp-for="@Model.user.Password">Password</label>
+                            <input type="password" asp-for="@Model.user.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                            <span asp-validation-for="@Model.user.Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <label asp-for="@Model.user.Username">Username</label>
+                            <input asp-for="@Model.user.Username" class="form-control" aria-required="true" placeholder="username" />
+                            <span asp-validation-for="@Model.user.Username" class="text-danger"></span>
+                        </div>
+                        <button id="Login" type="submit" class="w-100 btn btn-lg btn-success">Register</button>
+                    </form>
+                    <div class="mb-3" style="padding-top:20px;">
+                        <h6>Have an account? <a asp-page="Login">Login</a></h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

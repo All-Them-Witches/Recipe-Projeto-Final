@@ -1,0 +1,46 @@
+﻿@page
+@model Recipe.Pages.CreateRecipeModel
+@{
+    Layout = "Shared/_Layout.cshtml";
+    ViewData["Title"] = "Login";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card border-success mb-3">
+                <div class="card-header bg-success text-white">Create a new account</div>
+                <div class="card-body">
+                    <form id="registerForm" method="post" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                        <div class="form-floating mb-3">
+                            <label asp-for="@Model.Recipe.Title">Title</label>
+                            <input asp-for="@Model.Recipe.Title" class="form-control" aria-required="true" placeholder="Title" />
+                            <span asp-validation-for="@Model.Recipe.Title" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <label asp-for="@Model.Recipe.Description">Description</label>
+                            <input type="text" asp-for="@Model.Recipe.Description" class="form-control" placeholder="Description" />
+                            <span asp-validation-for="@Model.Recipe.Description" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <label asp-for="@Model.Recipe.Instructions">Instructions</label>
+                            <input type="text" asp-for="@Model.Recipe.Instructions" class="form-control" placeholder="Instructions" />
+                            <span asp-validation-for="@Model.Recipe.Instructions" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <label asp-for="@Model.Recipe.Image">Choose an image for the food</label>
+                            <input type="file" accept="image/*" name="RecipeImage" asp-for="@Model.Recipe.Image" class="form-control" />
+                            <span asp-validation-for="@Model.Recipe.Image" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Seperate the ingredients with comma and use numbers for quantites</label>
+                            <textarea style="resize:none;" name="ingredientsStr" placeholder="2 spoon of suger ,1 cup of milk"></textarea>
+                        </div>
+                        <button type="submit" class="w-100 btn btn-lg btn-success">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
